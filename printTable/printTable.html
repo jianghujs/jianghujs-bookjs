@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>printTable</title>
+
+    <style>
+        /* 容器 */
+        .nop-page {
+            font-size: 14px !important;
+            line-height: 21px !important;
+        }
+
+        /* signature */
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 15mm;
+            left: 10mm;
+            width: calc(100% - 20mm);
+        }
+        
+        .signature>div {
+            width: 280px;
+            text-align: center;
+        }
+        
+        .signature .left {
+            margin-top: 33px;
+        }
+        
+        .signature p {
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        
+        .signature img {
+            width: 180px;
+        }
+
+        /* section-1 */
+        .section-1 {
+            text-align: center;
+        }
+        
+        .section-1 .title {
+            font-size: 30px;
+        }
+        
+        .section-1 .info {
+            padding-top: 10px;
+        }
+
+        /* section-2 */
+        .section-2 {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+        }
+        
+        .section-2 .left {
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .section-2 .right .label {
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+        }
+        
+        .section-2 .right .invoiceNo {
+            font-weight: bold;
+        }
+
+        /* section-3 */
+        .section-3 {
+            width: 100%;
+            font-size: 14px;
+            text-align: center;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        .section-3 td:not([align]),
+        .section-3 th:not([align]) {
+            text-align: center !important;
+        }
+        
+        .section-3 th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .section-3 td {
+            border-right: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .section-3 tbody tr:first-child {
+            vertical-align: bottom;
+        }
+        
+        .section-3 .tfoot {
+            border-top: 1px solid #ddd;
+        }
+        
+        .section-3 .tfoot td .paymentInfo {
+            text-align: left;
+        }
+        
+        .section-3 .tfoot td .total {
+            font-weight: bold;
+        }
+
+        /* section-4 */
+        .section-4 {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 分页 */
+        .nop-book .page-num-simple{
+            padding-bottom: 0.6cm !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content-box" style="display: none">
+        <div data-op-type="pendants">
+            <div class="signature">
+                <div class="left">
+                    <p>Chop & Signature</p>
+                </div>
+                <div>
+                    <img src="./static/img/sign.jpeg" />
+                    <p>Authorised Signature</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-1" data-op-type="mix-box">
+            <div class="title">Tai Fong ManuFacturer & Trading</div>
+            <div class="info">
+                <p>39 Woodlands Close #06-21 @ Woodlands Singapore 737856</p>
+                <p>HP: 97436193</p>
+                <p>R.O.C.#: 53276954J</p>
+            </div>
+        </div>
+
+        <div class="section-2" data-op-type="mix-box">
+            <div class="left">
+                <div>Bill To：</div>
+                <div>
+                    <p>Urban Creations Pte Ltd (Ah Bao)</p>
+                    <p>25 Kaki Bukit Road 4, Synergy @KB #05-41/42 417800</p>
+                    <p>T: 62995525 F: 63822521</p>
+                </div>
+            </div>
+            <div class="right">
+                <p>
+                    <span class="label">Invoice No：</span>
+                    <span class="invoiceNo">INV/2022/00001</span>
+                </p>
+                <p>
+                    <span class="label">DATE：</span>
+                    <span>09/01/2022</span>
+                </p>
+            </div>
+        </div>
+
+        <table class="section-3" data-op-type="table">
+            <thead>
+                <th>ITEM NO</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>UNIT</th>
+                <th>EXTENED</th>
+            </thead>
+            <tbody class="nop-fill-box">
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div>
+                            <p data-op-type="block">P.V.C EDGING</p>
+                            <p data-op-type="block">5pcs*23*1/2*28</p>
+                        </div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">tf-ch0143</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5pcs*23*1/2*28</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">4,000.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">5.00</div>
+                    </td>
+                    <td data-split-repeat="true">
+                        <div data-op-type="block">ft</div>
+                    </td>
+                    <td>
+                        <div data-op-type="block">$ 20,000.00</div>
+                    </td>
+                </tr>
+                <tr class="tfoot">
+                    <td colspan="3" data-split-repeat="true">
+                        <div class="paymentInfo" data-op-type='block'>
+                            <p>Cheques Should Be Made payable to "Tai Fong Manufacturer & Trading"</p>
+                            <p>Bank Name: UOB</p>
+                            <p>A/C NO: 396-303-211-9</p>
+                            <p>PayNow UEN: 53276954J</p>
+                        </div>
+                    </td>
+                    <td colspan="2" data-split-repeat="true">
+                        <div data-op-type='block'>
+                            <p>SALE AMOUNT</p>
+                            <p>GST</p>
+                            <p class="total">TOTAL GST</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div data-op-type='block'>
+                            <p>$27.00</p>
+                            <p>$0.00</p>
+                            <p class="total">$27.00</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-4" data-op-type="mix-box">
+            <div>Goods sold arenot returnable or exchangeable.</div>
+            <div>Tai Fong Manufacturer & Trading</div>
+        </div>    
+    </div>
+
+    <script src="./static/js/polyfill.min.js"></script>
+    <script src="./static/js/jquery.min.js"></script>
+    <script src="./static/js/lodash.min.js"></script>
+    <script src="./static/js/bookjs/latest/bookjs-eazy.min.js"></script>
+    <script>
+        bookConfig = {
+            pageSize: "ISO_A4",
+            orientation: 'portrait',
+            padding: "15mm 10mm 55mm 10mm",
+            simplePageNum: {
+                pageBegin: 0,
+                pageEnd: -1,
+                pendant: "<div class=\"page-num-simple\"><span style=\"\">Page ${PAGE} / Total ${TOTAL_PAGE} pages</span></div>"
+            },
+            toolBar: {
+                webPrint: true
+            },
+            start: true,
+        };
+    </script>
+</body>
+
+</html>
